@@ -36,9 +36,8 @@ class OutputFragment : Fragment() {
                     safeargs.cData
                 }
 
-        binding.lblStudentNme.text = cData.stuName
-        binding.lblProgram.text = cData.program
-
+        binding.lblStudentNme.text = "Student Name: " + cData.stuName
+        binding.lblProgram.text = "Program: " + cData.program
 
         binding.btnBack.setOnClickListener { goBack() }
         return binding.root
