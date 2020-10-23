@@ -16,29 +16,22 @@ import androidx.navigation.fragment.navArgs
 class OutputFragment : Fragment() {
     private lateinit var binding : FragmentOutputBinding
     private lateinit var cData : CollegeData
+    private val safeArgs: OutputFragmentArgs by navArgs()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentOutputBinding.inflate(inflater,container,false)
-
-        //get parameters from safe args or bundle
-        cData =
-                if (savedInstanceState is Bundle){
-                    savedInstanceState.getSerializable("college_data") as CollegeData
-                }else{
-                    val safeargs: OutputFragmentArgs by navArgs()
-                    safeargs.cData
-                }
-
-        binding.lblStudentNme.text = "Student Name: " + cData.stuName
-        binding.lblProgram.text = "Program: " + cData.program
-
+        val binding = FragmentOutputBinding.inflate(inflater, container, false)
+        with(safeArgs.cData){
+            binding.lblStudentNme.text = stuName
+            binding.lblProgram.text = program
+        }
         binding.btnBack.setOnClickListener { goBack() }
         return binding.root
     }
