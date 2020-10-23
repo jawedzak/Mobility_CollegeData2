@@ -3,26 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/InputFragment">
-
+    app:startDestination="@id/inputFragment">
     <fragment
-        android:id="@+id/InputFragment"
+        android:id="@+id/inputFragment"
         android:name="sheridan.jawedzak.collegedata2.InputFragment"
-        android:label="@string/first_fragment_label"
+        android:label="fragment_input"
         tools:layout="@layout/fragment_input">
-
         <action
-            android:id="@+id/action_InputFragment_to_OutputFragment"
-            app:destination="@id/OutputFragment" />
+            android:id="@+id/action_input_to_output"
+            app:destination="@id/outputFragment" />
     </fragment>
     <fragment
-        android:id="@+id/OutputFragment"
+        android:id="@+id/outputFragment"
         android:name="sheridan.jawedzak.collegedata2.OutputFragment"
-        android:label="@string/second_fragment_label"
+        android:label="fragment_output"
         tools:layout="@layout/fragment_output">
-
         <action
-            android:id="@+id/action_OutputFragment_to_InputFragment"
-            app:destination="@id/InputFragment" />
+            android:id="@+id/action_output_to_input"
+            app:destination="@id/inputFragment" />
+        <argument
+            android:name="cData"
+            app:argType="sheridan.jawedzak.collegedata2.model.CollegeData" />
     </fragment>
 </navigation>
