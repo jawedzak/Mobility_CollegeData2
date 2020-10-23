@@ -29,8 +29,8 @@ class OutputFragment : Fragment() {
     ): View? {
         val binding = FragmentOutputBinding.inflate(inflater, container, false)
         with(safeArgs.cData){
-            binding.lblStudentNme.text = stuName
-            binding.lblProgram.text = program
+            binding.lblStudentNme.text = "Student Name: " + stuName
+            binding.lblProgram.text = "Program: "+  program
         }
         binding.btnBack.setOnClickListener { goBack() }
         return binding.root
